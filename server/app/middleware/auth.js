@@ -3,7 +3,7 @@ const config = require('../../config/config');
 const User = require('../models/user');
 const moment = require('moment');
 const checkIfAuthed = (req, res, next) => {
-    if(req.originalUrl === '/api/users/login' || req.originalUrl === '/api/users/register') return next();
+    if(req.originalUrl === '/api/users/login' || req.originalUrl === '/api/users/new') return next();
 
     if(req.headers && req.headers.authorization) {
         try {

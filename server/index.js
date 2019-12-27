@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const User = require('./app/models/user');
+const cors = require('cors');
 const app = express();
 const {check, validationResult} = require('express-validator');
 const {register, login, getAllUsers, updateUser} = require('./app/controllers/usercontroller');
@@ -10,8 +11,9 @@ const {checkIfAuthed} = require('./app/middleware/auth');
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(checkIfAuthed);
+app.use(cors());
 
-app.post('/api/users/create', [
+app.post('/api/users/new', [
     check('email').isEmail(),
     check('first_name').isString().isLength({min: 3}),
     check('last_name').isString().isLength({min: 3}),

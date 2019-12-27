@@ -37,6 +37,7 @@ const login = (req, res) => {
 }
 
 const register = (req, res) => {
+    console.log('Register');
     const errors = validationResult(req);
     if(!errors.isEmpty()) {
         return res.status(422).json({errors: errors.array()});
