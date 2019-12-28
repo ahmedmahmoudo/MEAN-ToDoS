@@ -11,26 +11,26 @@
     <div class="container-fluid mt-5">
         <div id="section-2">
             <div class="row p-5">
-                <div class="col-6">
+                <div class="col-md-6 col-sm-12">
                     <div class="uppercase display-4">Save your tasks, with the progress in an organized way!</div>
                 </div>
-                <div class="col-6 d-flex justify-content-center align-items-center">
+                <div class="col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
                     <awesome-icon icon="book-medical" class="view-icon"></awesome-icon>
                 </div>
             </div>
             <div class="row mt-5 grey-bg p-5">
-                <div class="col-6 d-flex justify-content-center align-items-center">
+                <div class="col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
                     <awesome-icon icon="share-square" class="view-icon"></awesome-icon>
                 </div>
-                <div class="col-6">
+                <div class="col-md-6 col-sm-12">
                     <div class="uppsercase display-4">Invite your team, and share with them all your tasks or assign tasks to them!</div>
                 </div>
             </div>
             <div class="row mt-5 p-5">
-                <div class="col-6">
+                <div class="col-md-6 col-sm-12">
                     <div class="uppsercase display-4">Save your taks into a PDF file if you wish to print them later!</div>
                 </div>
-                <div class="col-6 d-flex justify-content-center align-items-center">
+                <div class="col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
                     <awesome-icon icon="file-pdf" class="view-icon"></awesome-icon>
                 </div>
             </div>

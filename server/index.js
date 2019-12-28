@@ -1,32 +1,21 @@
 const express = require('express');
-const path = require('path');
-const User = require('./app/models/user');
 const cors = require('cors');
 const app = express();
-const {check, validationResult} = require('express-validator');
-const {register, login, getAllUsers, updateUser} = require('./app/controllers/usercontroller');
 const {checkIfAuthed} = require('./app/middleware/auth');
-
+const apiRouter = require('./routes/api');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
-app.use(checkIfAuthed);
 app.use(cors());
+app.use(checkIfAuthed);
 
-app.post('/api/users/new', [
-    check('email').isEmail(),
-    check('first_name').isString().isLength({min: 3}),
-    check('last_name').isString().isLength({min: 3}),
-    check('password').isString().isLength({min: 6})
-], register);
+app.use('/api', apiRouter);
 
-app.post('/api/users/login', [
-    check('email').isEmail(),
-    check('password').isString()
-], login);
 
-app.get('/api/users/', getAllUsers);
-app.put('/api/users/update', updateUser);
+app.use(function (err, req, res, next) {
+    console.error(err.stack)
+    res.status(500).send('Something broke!')
+});
 
 const PORT = process.env.PORT || 8000;
 

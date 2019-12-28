@@ -4,7 +4,7 @@ const database = new seq('todos', 'root', '', {
     dialect: 'mysql'
 });
 
-database.authenticate().then(() => console.log('Database connected')).catch(err => console.log('Unable to connect to the database:',err));
+database.authenticate().then(() => console.log('Database connected')).catch(err => console.log('Unable to connect to the database'));
 
 
 module.exports = {database, Model: seq.Model, seq};

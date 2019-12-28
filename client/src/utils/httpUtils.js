@@ -1,9 +1,7 @@
 import axios from 'axios';
 
-export const http = axios;
-
+export const http = axios.create();
 
 export const setToken = (token) => {
-       axios.defaults.headers.common['Authorization'] = token;
+    http.defaults.headers.common['Authorization'] = token;
 }
-

@@ -1,12 +1,14 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="dark" class="mb-5">
+    <b-navbar toggleable="lg" type="dark" variant="dark">
         <b-navbar-brand href="/">ToDos</b-navbar-brand>
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
         <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav>
-                <b-nav-item href="#" @click="() => $router.push({name: 'Home'})">Home</b-nav-item>
+                <b-nav-item :to="{name: 'Home'}">Home</b-nav-item>
+                <b-nav-item v-if="user" :to="{name: 'Dashboard'}">Dashboard</b-nav-item>
+
             </b-navbar-nav>
 
             <b-navbar-nav class="ml-auto">

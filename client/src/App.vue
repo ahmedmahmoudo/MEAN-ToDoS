@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navbar v-if="$route.name != 'Home'"></navbar>
+    <navbar v-if="$route.name != 'Home' || user" :class="$route.name != 'Home' ? 'mb-5' : ''"></navbar>
     <router-view></router-view>
     <b-toast id="notification-toast" :variant="style" solid :visible="showToast" @change="$store.commit('removeToast')">
       <template v-slot:toast-title>
@@ -24,7 +24,8 @@ export default {
       showToast: state => state.showToast,
       toastMsg: state => state.toastMsg,
       toastTitle: state => state.toastTitle,
-      style: state => state.style
+      style: state => state.style,
+      user: state => state.userStore.user
     }),
   },
 }

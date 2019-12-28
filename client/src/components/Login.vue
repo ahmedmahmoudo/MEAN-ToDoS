@@ -4,7 +4,7 @@
         <div class="col-12">
             <div class="display-4">Sign in</div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6 col-sm-12">
             <b-form @submit.stop.prevent>
                 <b-form-group label="Email" label-for="email">
                     <b-form-input id="email" v-model.trim="$v.loginForm.email.$model" type="email" :state="sumbitted ? !$v.loginForm.email.$anyError : null" placeholder="john@gmail.com"></b-form-input>
@@ -26,7 +26,7 @@
                 </b-form-group>
                 <div class="row align-items-center">
                     <div class="col-6">
-                        <b-button type="submit" @click="doLogin">Login</b-button>
+                        <b-button type="submit" :disabled="disabled" @click="doLogin">Login</b-button>
                     </div>
                     <div class="col-6">
                         <router-link :to="{name: 'Register'}">Don't have an account? Register</router-link>
@@ -49,7 +49,8 @@ export default {
               email: '',
               password: '',
           },
-          sumbitted: false
+          sumbitted: false,
+          disabled: false
       }
   },
   validations: {
@@ -72,7 +73,8 @@ export default {
           this.$v.loginForm.$touch();
           if(!this.$v.loginForm.$invalid) {
               let form = this.loginForm;
-              this.login(form);
+              this.disabled = true;
+              this.login(form).finally(() => this.disabled = false);
           }
       }
   }

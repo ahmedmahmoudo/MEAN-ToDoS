@@ -5,7 +5,7 @@
         <div class="col-12 mb-5">
             <div class="display-4">Register a new account</div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6 col-sm-12">
           <b-form @submit.stop.prevent>
             <b-form-group label="First Name" label-for="first_name">
               <b-form-input id="first_name" v-model.trim="$v.registerForm.first_name.$model" type="text" :state="sumbitted ? !$v.registerForm.first_name.$anyError : null" placeholder="John"></b-form-input>
